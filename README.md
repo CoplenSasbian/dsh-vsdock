@@ -32,7 +32,7 @@ changes a file. It is a client of **dsh-quickdock**, the plugin that runs inside
 - **Reconnects instead of failing.** The status bar shows reachability; when nothing
   answers, the view explains the address and reason and can start DSH for you.
 
-## How the three fit together
+## How the docks fit together
 
 DSH Dock for VS Code is one of three editor docks for the same page. **It requires DSH with
 the [dsh-quickdock](https://github.com/CoplenSasbian/dsh-quickdock) plugin installed** — QuickDock

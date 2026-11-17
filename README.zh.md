@@ -25,7 +25,7 @@ diff 供你审阅。它是 **dsh-quickdock**（运行在 DSH 里的插件）的�
 - **断线也不空白。** 状态栏显示连通性；连不上时页面会说明尝试的地址和原因，并能直接帮你
   启动 DSH。
 
-## 三个项目怎么配合
+## 几个 dock 怎么配合
 
 DSH Dock for VS Code 是同一个页面的三个编辑器 dock 之一。**它要求 DSH 安装
 [dsh-quickdock](https://github.com/CoplenSasbian/dsh-quickdock) 插件**——QuickDock 负责提供
