@@ -27,17 +27,18 @@ diff 供你审阅。它是 **dsh-quickdock**（运行在 DSH 里的插件）的�
 
 ## 三个项目怎么配合
 
-DSH Dock for VS Code 是同一个页面的两个编辑器 dock 之一。**它要求 DSH 安装
+DSH Dock for VS Code 是同一个页面的三个编辑器 dock 之一。**它要求 DSH 安装
 [dsh-quickdock](https://github.com/CoplenSasbian/dsh-quickdock) 插件**——QuickDock 负责提供
 对话页面，以及本扩展注册编辑器工具的 MCP 桥。
 
 | 项目 | 运行在 | 是什么 |
 |---|---|---|
-| [dsh-quickdock](https://github.com/CoplenSasbian/dsh-quickdock) | DSH | 宿主：把对话作为回环页面提供出来，并提供编辑器 dock 注册工具的 MCP 桥。**两个编辑器 dock 都依赖它。** |
+| [dsh-quickdock](https://github.com/CoplenSasbian/dsh-quickdock) | DSH | 宿主：把对话作为回环页面提供出来，并提供编辑器 dock 注册工具的 MCP 桥。**每个编辑器 dock 都依赖它。** |
 | [DSH Dock for VS Code](https://github.com/CoplenSasbian/dsh-vsdock) | VS Code | 同一页面放进辅助侧边栏，外加 VS Code 编辑器工具。 |
 | [DSH Dock for JetBrains IDEs](https://github.com/CoplenSasbian/dsh-intellijdock) | IntelliJ IDEA、CLion、PyCharm、WebStorm、GoLand 等 | 同一页面放进工具窗口，外加 JetBrains 编辑器工具。 |
+| [DSH Dock for Visual Studio](https://github.com/CoplenSasbian/dsh-visualstudio) | Visual Studio 2026 | 同一页面放进工具窗口（编辑器工具部分还在做）。 |
 
-两个编辑器 dock 可以同时连同一个目录：工具命名空间（`vscode_*` 与 `mcp__<ide>__*`）不会冲突。
+这些编辑器 dock 可以同时连同一个目录：工具命名空间（`vscode_*`、`mcp__<ide>__*`）不会冲突。
 
 ## 环境要求
 

@@ -34,18 +34,19 @@ changes a file. It is a client of **dsh-quickdock**, the plugin that runs inside
 
 ## How the three fit together
 
-DSH Dock for VS Code is one of two editor docks for the same page. **It requires DSH with the
-[dsh-quickdock](https://github.com/CoplenSasbian/dsh-quickdock) plugin installed** — QuickDock
+DSH Dock for VS Code is one of three editor docks for the same page. **It requires DSH with
+the [dsh-quickdock](https://github.com/CoplenSasbian/dsh-quickdock) plugin installed** — QuickDock
 serves the conversation and the MCP bridge this extension registers its tools with.
 
 | Project | Runs in | What it is |
 |---|---|---|
-| [dsh-quickdock](https://github.com/CoplenSasbian/dsh-quickdock) | DSH | The host half: serves the conversation as a loopback page and the MCP bridge the editor docks register with. **Required by both editor docks.** |
+| [dsh-quickdock](https://github.com/CoplenSasbian/dsh-quickdock) | DSH | The host half: serves the conversation as a loopback page and the MCP bridge the editor docks register with. **Required by every editor dock.** |
 | [DSH Dock for VS Code](https://github.com/CoplenSasbian/dsh-vsdock) | VS Code | The same page in the secondary side bar, plus VS Code editor tools. |
 | [DSH Dock for JetBrains IDEs](https://github.com/CoplenSasbian/dsh-intellijdock) | IntelliJ IDEA, CLion, PyCharm, WebStorm, GoLand, … | The same page in a tool window, plus JetBrains editor tools. |
+| [DSH Dock for Visual Studio](https://github.com/CoplenSasbian/dsh-visualstudio) | Visual Studio 2026 | The same page in a tool window (the editor-tools half is next). |
 
-The two editor docks can be connected to the same folder at the same time: their tool
-namespaces (`vscode_*` and `mcp__<ide>__*`) do not collide.
+The editor docks can be connected to the same folder at the same time: their tool namespaces
+(`vscode_*`, `mcp__<ide>__*`) do not collide.
 
 ## Requirements
 
