@@ -1,0 +1,299 @@
+{
+  "name": "dsh-vsdock",
+  "displayName": "%displayName%",
+  "description": "%description%",
+  "version": "0.7.0",
+  "publisher": "dsh",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "quickdock",
+    "dock",
+    "webview"
+  ],
+  "main": "./out/extension.js",
+  "icon": "media/icon.png",
+  "extensionKind": [
+    "ui"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onView:dshVsdock.dock"
+  ],
+  "capabilities": {
+    "virtualWorkspaces": true,
+    "untrustedWorkspaces": {
+      "supported": true
+    }
+  },
+  "contributes": {
+    "configuration": {
+      "title": "%config.title%",
+      "properties": {
+        "dshVsdock.port": {
+          "type": "number",
+          "default": 47910,
+          "minimum": 1,
+          "maximum": 65535,
+          "order": 1,
+          "scope": "window",
+          "title": "%config.port.title%",
+          "markdownDescription": "%config.port.description%"
+        },
+        "dshVsdock.followQuickDockConfig": {
+          "type": "boolean",
+          "default": true,
+          "order": 2,
+          "scope": "window",
+          "title": "%config.follow.title%",
+          "markdownDescription": "%config.follow.description%"
+        },
+        "dshVsdock.statusBar": {
+          "type": "boolean",
+          "default": true,
+          "order": 3,
+          "scope": "window",
+          "title": "%config.statusBar.title%",
+          "description": "%config.statusBar.description%"
+        },
+        "dshVsdock.mcp": {
+          "type": "boolean",
+          "default": false,
+          "order": 4,
+          "scope": "window",
+          "title": "%config.mcp.title%",
+          "markdownDescription": "%config.mcp.description%"
+        },
+        "dshVsdock.mcpPort": {
+          "type": "number",
+          "default": 47920,
+          "minimum": 1,
+          "maximum": 65535,
+          "order": 5,
+          "scope": "window",
+          "title": "%config.mcpPort.title%",
+          "markdownDescription": "%config.mcpPort.description%"
+        },
+        "dshVsdock.reviewEdits": {
+          "type": "boolean",
+          "default": true,
+          "order": 6,
+          "scope": "window",
+          "title": "%config.review.title%",
+          "markdownDescription": "%config.review.description%"
+        },
+        "dshVsdock.reviewIgnore": {
+          "type": "array",
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true,
+          "order": 7,
+          "scope": "window",
+          "title": "%config.reviewIgnore.title%",
+          "markdownItemDescription": "%config.reviewIgnore.item%",
+          "markdownDescription": "%config.reviewIgnore.description%"
+        },
+        "dshVsdock.dshCommand": {
+          "type": "string",
+          "default": "dsh",
+          "order": 8,
+          "scope": "window",
+          "title": "%config.dshCommand.title%",
+          "markdownDescription": "%config.dshCommand.description%"
+        },
+        "dshVsdock.dshProfile": {
+          "type": "string",
+          "default": "",
+          "order": 9,
+          "scope": "window",
+          "title": "%config.dshProfile.title%",
+          "markdownDescription": "%config.dshProfile.description%"
+        },
+        "dshVsdock.dshArgs": {
+          "type": "string",
+          "default": "",
+          "order": 10,
+          "scope": "window",
+          "title": "%config.dshArgs.title%",
+          "markdownDescription": "%config.dshArgs.description%"
+        },
+        "dshVsdock.mcpWriteTools": {
+          "type": "boolean",
+          "default": false,
+          "order": 11,
+          "scope": "window",
+          "title": "%config.mcpWriteTools.title%",
+          "markdownDescription": "%config.mcpWriteTools.description%"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "dshVsdock.open",
+        "title": "%command.open.title%",
+        "category": "DSH Dock",
+        "icon": "$(browser)"
+      },
+      {
+        "command": "dshVsdock.reload",
+        "title": "%command.reload.title%",
+        "category": "DSH Dock",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "dshVsdock.openInBrowser",
+        "title": "%command.openInBrowser.title%",
+        "category": "DSH Dock",
+        "icon": "$(link-external)"
+      },
+      {
+        "command": "dshVsdock.retry",
+        "title": "%command.retry.title%",
+        "category": "DSH Dock",
+        "icon": "$(debug-restart)"
+      },
+      {
+        "command": "dshVsdock.useDetectedPort",
+        "title": "%command.useDetectedPort.title%",
+        "category": "DSH Dock"
+      },
+      {
+        "command": "dshVsdock.openPortSettings",
+        "title": "%command.openPortSettings.title%",
+        "category": "DSH Dock",
+        "icon": "$(settings-gear)"
+      },
+      {
+        "command": "dshVsdock.startDsh",
+        "title": "%command.startDsh.title%",
+        "category": "DSH Dock",
+        "icon": "$(rocket)"
+      },
+      {
+        "command": "dshVsdock.openLog",
+        "title": "%command.openLog.title%",
+        "category": "DSH Dock"
+      },
+      {
+        "command": "dshVsdock.openDiff",
+        "title": "%command.openDiff.title%",
+        "category": "DSH Dock",
+        "icon": "$(diff)"
+      },
+      {
+        "command": "dshVsdock.reviewEnable",
+        "title": "%command.reviewEnable.title%",
+        "category": "DSH Dock",
+        "icon": "$(eye-closed)"
+      },
+      {
+        "command": "dshVsdock.reviewDisable",
+        "title": "%command.reviewDisable.title%",
+        "category": "DSH Dock",
+        "icon": "$(eye)"
+      },
+      {
+        "command": "dshVsdock.mcpPair",
+        "title": "%command.mcpPair.title%",
+        "category": "DSH Dock",
+        "icon": "$(plug)"
+      },
+      {
+        "command": "dshVsdock.mcpUnpair",
+        "title": "%command.mcpUnpair.title%",
+        "category": "DSH Dock",
+        "icon": "$(debug-disconnect)"
+      }
+    ],
+    "viewsContainers": {
+      "secondarySidebar": [
+        {
+          "id": "dshVsdock",
+          "title": "%views.container.title%",
+          "icon": "media/dock.svg"
+        }
+      ]
+    },
+    "views": {
+      "dshVsdock": [
+        {
+          "id": "dshVsdock.dock",
+          "type": "webview",
+          "name": "%views.dock.name%",
+          "contextualTitle": "%views.dock.title%"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "dshVsdock.mcpPair",
+          "when": "view == dshVsdock.dock && !dshVsdock.mcpOn && !dshVsdock.dockShown",
+          "group": "navigation@0"
+        },
+        {
+          "command": "dshVsdock.mcpUnpair",
+          "when": "view == dshVsdock.dock && dshVsdock.mcpOn && !dshVsdock.dockShown",
+          "group": "navigation@0"
+        },
+        {
+          "command": "dshVsdock.reviewDisable",
+          "when": "view == dshVsdock.dock && dshVsdock.reviewOn",
+          "group": "navigation@2"
+        },
+        {
+          "command": "dshVsdock.reviewEnable",
+          "when": "view == dshVsdock.dock && !dshVsdock.reviewOn",
+          "group": "navigation@2"
+        },
+        {
+          "command": "dshVsdock.reload",
+          "when": "view == dshVsdock.dock",
+          "group": "navigation@1"
+        },
+        {
+          "command": "dshVsdock.openInBrowser",
+          "when": "view == dshVsdock.dock",
+          "group": "1_actions@1"
+        },
+        {
+          "command": "dshVsdock.openPortSettings",
+          "when": "view == dshVsdock.dock",
+          "group": "1_actions@2"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "dshVsdock.open",
+        "key": "ctrl+alt+d",
+        "mac": "cmd+alt+d"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run clean && npm run compile",
+    "clean": "node -e \"require('node:fs').rmSync('out', { recursive: true, force: true })\"",
+    "compile": "tsc -p ./",
+    "check": "tsc -p ./ --noEmit && node scripts/check-strings.mjs",
+    "watch": "tsc -watch -p ./",
+    "test": "npm run clean && npm run compile && node --test \"test/*.test.mjs\"",
+    "test:inline": "node --test --test-isolation=none \"test/*.test.mjs\"",
+    "verify": "npm run check && npm test",
+    "package": "npx --yes @vscode/vsce@3 package --allow-missing-repository --no-rewrite-relative-links"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "@types/vscode": "1.85.0",
+    "typescript": "^5.9.3"
+  }
+}
