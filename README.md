@@ -23,9 +23,9 @@ changes a file. It is a client of **dsh-quickdock**, the plugin that runs inside
   Only the agent's own writes arrive here, so a build touching a thousand files opens
   nothing.
 - **Editor tools for the agent.** Thirteen read-only tools run in VS Code — workspace
-  folders, selection, diagnostics, files (unsaved buffers included), symbols, search,
-  definitions and references, hover, code actions, reveal, review diff. Five write tools
-  (edit, save, run task, terminal, start debug) are off by default.
+  folders, selection, diagnostics, files (unsaved buffers included), symbols, search, list
+  files by pattern, definitions and references, hover, code actions, reveal, review diff.
+  Five write tools (edit, save, run task, terminal, start debug) are off by default.
 - **Scoped to your folders.** Tools are mounted only for sessions working inside a folder
   this window has open. When a session works elsewhere, the dock's title bar shows an amber
   warning triangle, and the list button shows what was published and what is mounted.
