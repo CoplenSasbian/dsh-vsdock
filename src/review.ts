@@ -200,6 +200,9 @@ export type ReviewDecision = { review: true } | { review: false; reason: string 
 export function decideReview(input: ReviewDecisionInput): ReviewDecision {
   if (input.dirty) return { review: false, reason: 'the buffer has unsaved changes' }
   if (input.paired.length === 0) return { review: false, reason: 'no folder is registered with DSH' }
+  if (input.folders.length > 0 && !insideAny(input.path, input.folders)) {
+    return { review: false, reason: 'outside this workspace' }
+  }
   if (!insideAny(input.path, input.paired)) return { review: false, reason: 'outside the folders DSH may change' }
   if (input.bytes > input.maxBytes) return { review: false, reason: 'file is too large' }
   if (!input.hasBefore) return { review: false, reason: 'no earlier version to compare with' }
