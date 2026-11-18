@@ -40,5 +40,6 @@
   "command.startDsh.title": "Start DSH",
   "command.openDiff.title": "Open a Diff for the Active File",
   "command.reviewEnable.title": "Open a Diff when DSH Changes or Creates a File",
-  "command.reviewDisable.title": "Stop Opening Diffs for DSH's Changes"
+  "command.reviewDisable.title": "Stop Opening Diffs for DSH's Changes",
+  "command.addToChat.title": "Add Selection to DSH Chat"
 }

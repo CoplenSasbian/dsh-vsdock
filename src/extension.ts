@@ -858,6 +858,34 @@ class DockController implements vscode.Disposable {
     else await this.enableMcp()
   }
 
+  /**
+   * Put the active selection into the dock's composer as an `@path` reference.
+   *
+   * The extension owns the editor and the dock page owns the input machine, so
+   * the message carries the file and the 1-based selection only.
+   */
+  async addToChat(): Promise<void> {
+    const editor = vscode.window.activeTextEditor
+    if (!editor) {
+      void vscode.window.showInformationMessage('Open a file to add to the DSH conversation.')
+      return
+    }
+    const view = this.view
+    if (!view) {
+      void vscode.window.showWarningMessage('Open the DSH Dock tool window first.')
+      return
+    }
+    const selection = editor.selection
+    await view.webview.postMessage({
+      type: 'quickdock:add-to-chat',
+      path: editor.document.uri.fsPath,
+      line: selection.start.line + 1,
+      endLine: selection.end.line + 1,
+      column: selection.start.character + 1,
+      endColumn: selection.end.character + 1
+    })
+  }
+
   /** Push the current tool state into the dock's title bar. */
   private pushMcpState(): void {
     const view = this.view
@@ -1220,6 +1248,7 @@ export function activate(context: vscode.ExtensionContext): void {
     vscode.commands.registerCommand('dshVsdock.openLog', () => controller.openLog()),
     vscode.commands.registerCommand('dshVsdock.startDsh', () => controller.startDsh()),
     vscode.commands.registerCommand('dshVsdock.openDiff', () => controller.openDiff()),
+    vscode.commands.registerCommand('dshVsdock.addToChat', () => controller.addToChat()),
     vscode.commands.registerCommand('dshVsdock.reviewEnable', () => controller.enableReview()),
     vscode.commands.registerCommand('dshVsdock.reviewDisable', () => controller.disableReview()),
     vscode.commands.registerCommand('dshVsdock.mcpPair', () => controller.enableMcp()),

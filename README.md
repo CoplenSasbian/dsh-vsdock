@@ -16,8 +16,10 @@ changes a file. It is a client of **dsh-quickdock**, the plugin that runs inside
 - **The session you are looking at.** The dock follows the session DSH bound to it and names
   it in the title bar; drag it to the primary side bar if you prefer the other side.
 - **Files open where you look.** A path clicked in the docked conversation opens in this
-  editor instead of the dock's own preview. The desktop window and a browser tab keep DSH's
-  normal behaviour.
+  editor instead of the dock's own preview, resolved against your workspace folders. The
+  desktop window and a browser tab keep DSH's normal behaviour.
+- **Send code to the conversation.** Select code, right-click → *Add Selection to DSH Chat*;
+  the composer gets `@path (lines a–b)` and the agent starts from that location.
 - **Automatic review diffs.** When DSH changes or creates a file, a diff tab opens by itself:
   the old text on the left, the new file on the right, as a preview that never takes focus.
   Only the agent's own writes arrive here, so a build touching a thousand files opens

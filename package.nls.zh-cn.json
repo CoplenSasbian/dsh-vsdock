@@ -40,5 +40,6 @@
   "command.startDsh.title": "启动 DSH",
   "command.openDiff.title": "对比当前文件与上次提交",
   "command.reviewEnable.title": "DSH 改文件或新建文件时自动打开 diff",
-  "command.reviewDisable.title": "停止为 DSH 的改动自动打开 diff"
+  "command.reviewDisable.title": "停止为 DSH 的改动自动打开 diff",
+  "command.addToChat.title": "把选区添加到 DSH 对话"
 }

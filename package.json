@@ -212,6 +212,12 @@
         "title": "%command.mcpUnpair.title%",
         "category": "DSH Dock",
         "icon": "$(debug-disconnect)"
+      },
+      {
+        "command": "dshVsdock.addToChat",
+        "title": "%command.addToChat.title%",
+        "category": "DSH Dock",
+        "icon": "$(comment-discussion)"
       }
     ],
     "viewsContainers": {
@@ -269,6 +275,13 @@
           "command": "dshVsdock.openPortSettings",
           "when": "view == dshVsdock.dock",
           "group": "1_actions@2"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "dshVsdock.addToChat",
+          "when": "editorHasSelection",
+          "group": "navigation"
         }
       ]
     },
